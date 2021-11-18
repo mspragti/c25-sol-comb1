@@ -65,7 +65,14 @@ function draw() {
 
 function keyPressed() {
   if (keyCode === 32) {
-    
+        var posX = playerArcher.body.postion.x
+        var posY = playerArcher.body.postion.y
+        var anglr = playerArcher.body.angle
+        var arrow =new PlayerArcher(posX,posY,100,10,angle)
+        
+        Matter.Body.setAngle(arrow.body, angle)
+    playerArrows.push(arrow)
+ 
     //console.log(angle);
 
 
@@ -77,7 +84,8 @@ function keyReleased() {
   if (keyCode === 32) {
     if (playerArrows.length) {
       var angle = playerArcher.body.angle;
-      playerArrows[playerArrows.length - 1].shoot(angle);
+      playerArrows[playerArrows.length - 1].shoot(angle); 
+      
     }
   }
 }
